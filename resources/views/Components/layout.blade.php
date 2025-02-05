@@ -26,7 +26,7 @@
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
               <x-nav-link type="a" href="/" :active="request()->is('/')">Home</x-nav-link>
-              <x-nav-link type="button" href="/about" :active="request()->is('about')">About</x-nav-link>
+              <x-nav-link type="a" href="/jobs" :active="request()->is('jobs')">Jobs</x-nav-link>
               <x-nav-link type="a" href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
             </div>
           </div>
