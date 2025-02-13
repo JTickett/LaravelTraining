@@ -21,7 +21,9 @@ class JobFactory extends Factory
             //
             'title' => fake()->jobTitle,
             'employer_id' => Employer::factory(),
-            'salary' => fake()->randomElement(['£50,000', '£30,000', '£20,000']),
+            'salary' => '£' . number_format(fake()->numberBetween(20, 70) * 1000),
+            // 'salary' => fake()->randomElement(['£50,000', '£30,000', '£20,000']),
+
         ];
     }
 }
