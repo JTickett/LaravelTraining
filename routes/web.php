@@ -52,17 +52,11 @@ Route::get('/jobs/{id}/edit', function ($id) {
 
 // Update
 Route::patch('/jobs/{id}', function ($id) {
-    // $job = Job::find($id);
-
-
-    // Validate
     request()->validate([
         'title' => ['required', 'min:3'],
         'salary' => ['required'],
     ]);
     // Authorise (on hold...)
-
-    // Update the job
     $job = Job::findOrFail($id);
     $job->update([
         'title' => request('title'),
@@ -74,8 +68,9 @@ Route::patch('/jobs/{id}', function ($id) {
 
 // Destroy
 Route::delete('/jobs/{id}', function ($id) {
-    $job = Job::find($id);
-    return view('jobs.show', ['job' => $job]);
+    Job::findOrFail($id)->delete();
+    // Authorise (on hold...)
+    return redirect('jobs/');
 });
 
 Route::get('/contact', function () {
